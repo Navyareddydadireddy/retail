@@ -1,0 +1,32 @@
+DROP TABLE IF EXISTS  retail_inventory;
+
+CREATE TABLE retail_inventory (
+    id INT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    brand VARCHAR(100) NOT NULL,
+    sku VARCHAR(100) NOT NULL UNIQUE,
+ 
+    price DECIMAL(10,2) NOT NULL CHECK (price >= 0),
+    currency CHAR(3) NOT NULL,
+ 
+    availability VARCHAR(20) NOT NULL
+        CHECK (availability IN ('In Stock', 'Out of Stock', 'Limited Stock')),
+ 
+    stock_level INT NOT NULL CHECK (stock_level >= 0),
+    units_sold INT DEFAULT 0 CHECK (units_sold >= 0),
+ 
+    store_id VARCHAR(100) NOT NULL,
+ 
+    city VARCHAR(100) NOT NULL,
+    state VARCHAR(100) NOT NULL,
+    region VARCHAR(50) NOT NULL,
+    country VARCHAR(100) NOT NULL,
+ 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+insert into  retail_inventory (
+
+
+);
